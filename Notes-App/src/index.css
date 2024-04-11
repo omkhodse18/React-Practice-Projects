@@ -1,0 +1,65 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  max-width: 960px;
+  margin-left: auto;  
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.notes-list{
+  display: grid;
+  grid-gap: 1rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* auto-fit: This keyword tells the grid to automatically fit as many columns as possible into the container without overflowing. It will adjust the number of columns based on the available space.
+
+  minmax(250px, 1fr): This function defines the minimum and maximum size of each column. In this case, it specifies that each column should be at least 250 pixels wide (min) and should expand (1fr) to fill any additional available space beyond that minimum width. */
+}
+
+.note{
+  background-color: #fef68a;
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note.new{
+  background-color: #67d7cc;
+}
+
+textarea{
+  background-color: #67d7cc;
+  border: none;
+  resize: none;
+}
+
+textarea:focus{
+  outline: none;
+}
+
+.save{
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.save:hover{
+  background-color: #ededed;
+  cursor: pointer;
+}

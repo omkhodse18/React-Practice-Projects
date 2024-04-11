@@ -1,14 +1,40 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {nanoid} from 'nanoid';
 import './App.css'
+import NotesList from './components/NotesList'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [notes, setNotes] = useState([
+    {
+      id : nanoid(),
+      text: "This is my first note",
+      date: "11/04/2024"
+    },
+    {
+      id : nanoid(),
+      text: "This is my second note",
+      date: "12/04/2024"
+    },
+    {
+      id : nanoid(),
+      text: "This is my third note",
+      date: "13/04/2024"
+    },
+    {
+      id : nanoid(),
+      text: "This is my fourth note",
+      date: "14\/04/2024"
+    },
+  ]);
+
+  
 
   return (
-    <div>
-      App
+    <div className='container'>
+      
+      <NotesList notes={notes}/>
+
     </div>
   )
 }
