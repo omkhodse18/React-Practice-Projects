@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function AddNote() {
+function AddNote({addNote}) {
     const [noteText, setNoteText] = useState('');
 
     function changeHandler(event){
@@ -8,7 +8,11 @@ function AddNote() {
     }
 
     function clickHandler(){
-        
+        // It means after removing the whitespace we still have some texts
+        if(noteText.trim().length > 0){
+            addNote(noteText);
+        }
+
     }
 
     return (

@@ -6,34 +6,45 @@ import NotesList from './components/NotesList'
 function App() {
 
   const [notes, setNotes] = useState([
-    {
-      id : nanoid(),
-      text: "This is my first note",
-      date: "11/04/2024"
-    },
-    {
-      id : nanoid(),
-      text: "This is my second note",
-      date: "12/04/2024"
-    },
-    {
-      id : nanoid(),
-      text: "This is my third note",
-      date: "13/04/2024"
-    },
-    {
-      id : nanoid(),
-      text: "This is my fourth note",
-      date: "14\/04/2024"
-    },
+    // {
+    //   id : nanoid(),
+    //   text: "This is my first note",
+    //   date: "11/04/2024"
+    // },
+    // {
+    //   id : nanoid(),
+    //   text: "This is my second note",
+    //   date: "12/04/2024"
+    // },
+    // {
+    //   id : nanoid(),
+    //   text: "This is my third note",
+    //   date: "13/04/2024"
+    // },
+    // {
+    //   id : nanoid(),
+    //   text: "This is my fourth note",
+    //   date: "14\/04/2024"
+    // },
   ]);
 
-  
+  const addNote = (text) => {
+    const date = new Date();
 
+    const newNote = {
+      date : date.toLocaleDateString(),
+      text : text,
+      id : nanoid()
+    }
+
+    const noteArray = [...notes, newNote];
+    setNotes(noteArray);
+  }
+  
   return (
     <div className='container'>
       
-      <NotesList notes={notes}/>
+      <NotesList notes={notes} addNote={addNote}/>
 
     </div>
   )
