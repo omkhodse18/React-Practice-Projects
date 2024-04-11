@@ -2,15 +2,20 @@ import React, { useState } from 'react'
 
 function AddNote({addNote}) {
     const [noteText, setNoteText] = useState('');
+    const characterLimit = 200;
 
     function changeHandler(event){
-        setNoteText(event.target.value);
+        if(characterLimit - event.target.value.length >= 0){
+            setNoteText(event.target.value);
+        }
+
     }
 
     function clickHandler(){
         // It means after removing the whitespace we still have some texts
         if(noteText.trim().length > 0){
             addNote(noteText);
+            setNoteText('');    //blank for new note
         }
 
     }
@@ -28,7 +33,7 @@ function AddNote({addNote}) {
             </textarea>
 
             <div className='note-footer'>
-                <small>200 Remaining</small>
+                <small>{characterLimit - noteText.length} Remaining</small>
                 <button className='save' onClick={clickHandler}>Save</button>
             </div>
         </div>
