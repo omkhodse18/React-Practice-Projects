@@ -102,3 +102,7 @@ textarea:focus{
 .search input:focus{
   outline: none;
 }
+
+.mode:hover{
+  cursor: pointer;
+}

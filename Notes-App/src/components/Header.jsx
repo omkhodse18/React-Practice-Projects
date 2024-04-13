@@ -8,7 +8,7 @@ function Header({darkMode, setDarkMode}) {
         <h1 >Notes</h1>
 
         {
-            darkMode ? <ImSun onClick={() => setDarkMode(!darkMode)} color='yellow'/> : <HiMiniMoon onClick={() => setDarkMode(!darkMode)}/>
+            darkMode ? <ImSun onClick={() => setDarkMode(!darkMode)} color='yellow'         className='mode'/> : <HiMiniMoon onClick={() => setDarkMode(!darkMode)} className='mode'/>
         }
     </div>
   )
