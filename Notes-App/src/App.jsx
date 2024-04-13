@@ -3,6 +3,7 @@ import {nanoid} from 'nanoid';
 import './App.css'
 import NotesList from './components/NotesList'
 import Search from './components/Search';
+import Header from './components/Header';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
   ]);
 
   const [searchText, setSearchText] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   const addNote = (text) => {
     const date = new Date();
@@ -51,13 +53,16 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      
-      <Search searchNote={setSearchText}/>
-      <NotesList 
-        notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} 
-        addNote={addNote}
-        deleteNote={deleteNote}/>
+    <div className={`${darkMode && 'dark-mode'}`}>
+      <div className={`container`}>
+        <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
+        <Search searchNote={setSearchText}/>
+        <NotesList 
+          notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} 
+          addNote={addNote}
+          deleteNote={deleteNote}/>
+
+      </div>
 
     </div>
   )
